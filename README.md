@@ -117,3 +117,9 @@ yarn start
 ## Conclusão
 
 Neste tutorial, aprendemos como criar um componente de player de vídeo no aplicativo react js e também exploramos como usar o plugin de mídia react js para desenvolver o player de vídeo personalizado.
+
+## Link para visualisar o projeto
+
+```js
+https://csb-u1lzv-1v4h0j0u3-gilbertoreact.vercel.app/
+```
