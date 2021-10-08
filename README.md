@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+## Tutorial do reprodutor de áudio e vídeo responsivo do React Js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tutorial de reprodutor de áudio e vídeo js. Os reprodutores de vídeo podem ser vistos facilmente em todos os sites populares, seja no Facebook, Instagram ou Youtube; em geral, esses sites têm seu próprio reprodutor de vídeo. E se você tiver que criar seu próprio reprodutor de vídeo? Se você é novo no desenvolvimento web, pode achar um pouco complicado incorporar um reprodutor de vídeo no React.
 
-## Available Scripts
+Este tutorial ensinará como criar um reprodutor de vídeo responsivo no aplicativo React js usando o pacote Reactjs Media e também como criar um reprodutor de áudio responsivo e reprodutor de áudio do zero.
 
-In the project directory, you can run:
+A biblioteca reactjs-media permite que você crie um reprodutor de vídeo simples e responsivo que funciona melhor em qualquer tamanho de dispositivo.
 
-### `yarn start`
+Por outro lado, você pode criar um componente de reprodutor de áudio, um componente de reprodutor de YouTube e um componente de reprodutor de Facebook no aplicativo react com este pacote. É fácil de configurar, requer apenas a importação da biblioteca ReactVideo e vem com um punhado de propriedades que ajudam a gerenciar rapidamente o reprodutor de vídeo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Como criar um reprodutor de vídeo / áudio no React Js
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Etapa 1: Criar Projeto React
+Etapa 2: instalar o pacote de mídia React Js
+Etapa 3: Criar arquivo de componente
+Etapa 4: tornar o componente de player de vídeo responsivo
+Etapa 5: Criar reprodutor de áudio
+Etapa 6: atualizar o arquivo Js do aplicativo
+Etapa 7: execute o servidor de desenvolvimento
 
-### `yarn test`
+## Criar, Projeto React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Na primeira etapa, temos que criar o aplicativo react, e você pode baixar a versão mais recente do aplicativo react usando o seguinte comando.
 
-### `yarn build`
+```js
+npx create-react-app (nome do seu projeto)
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Agora basta abrir, seu projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+cd (nome do projeto)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instale o pacote de mídia React Js
 
-### `yarn eject`
+```js
+npm install reactjs-media
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Criar arquivo de componente
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Nesta etapa, você deve abrir o arquivo components / MediaComponent.js e inserir o código fornecido a seguir para criar o reprodutor de vídeo responsivo em reação.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```js
+import React, { Component } from "react";
+import { ReactVideo } from "reactjs-media";
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+class MediaComponent extends Component {
+  render() {
+    return (
+      <div>
+        <ReactVideo
+          src="https://res.cloudinary.com/drimg72d1/video/upload/v1633700905/mar.mp4"
+          poster="/poster.png"
+          primaryColor="red"
+          autoPlay
+        />
+      </div>
+    );
+  }
+}
 
-## Learn More
+export default MediaComponent;
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Criar reprodutor de áudio
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Você pode importar o módulo ReactAudio do pacote “reactjs-media”, usar a diretiva ReactAudio para passar o arquivo de áudio e o pôster no componente de áudio react.
 
-### Code Splitting
+```js
+import React, { Component } from "react";
+import { ReactAudio } from "reactjs-media";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+class MediaComponent extends Component {
+  render() {
+    return (
+      <div>
+        <ReactAudio src="/your_audio_file.mp4" poster="/your_poster_file.png" />
+      </div>
+    );
+  }
+}
 
-### Analyzing the Bundle Size
+export default MediaComponent;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Atualizar arquivo Js do aplicativo
 
-### Making a Progressive Web App
+Em seguida, nesta etapa, você precisa registrar o componente do reprodutor de mídia no arquivo App.js principal .
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```js
+import React from "react";
+import "./App.css";
 
-### Advanced Configuration
+import MediaComponent from "./components/MediaComponent";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+function App() {
+  return (
+    <div className="App">
+      <MediaComponent />
+    </div>
+  );
+}
 
-### Deployment
+export default App;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Execute o servidor de desenvolvimento
 
-### `yarn build` fails to minify
+Mais uma vez, acesse o prompt de comando, digite o comando fornecido no terminal, pressione Enter e execute o servidor de desenvolvimento.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```js
+npm start
+ou
+yarn start
+```
+
+## Conclusão
+
+Neste tutorial, aprendemos como criar um componente de player de vídeo no aplicativo react js e também exploramos como usar o plugin de mídia react js para desenvolver o player de vídeo personalizado.
